@@ -63,8 +63,33 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        //return $this->render('index');
+        $category = Category::find()->all();
+        $product = Product::find()->all();
+        return $this->render('index', [
+            'category'=>$category,
+            'products'=>$product
+        ]);
     }
+
+
+   /* public function actionCategory($category){
+        $category = Category::find()->where([
+            'active'=>1,
+            'name'=>$category
+        ])->one();
+        $product = Product::find()->where(['category_id'=>$category->id])->all();
+        return $this->render('category', [
+            'category'=>$category,
+            'products'=>$product
+        ]);
+        print_r($category);
+    }*/
+
+
+
+
+
 
     /**
      * Login action.
@@ -145,6 +170,6 @@ class SiteController extends Controller
             'category'=>$category,
             'products'=>$product
         ]);
-        print_r($category);
+        //print_r($category);
     }
 }

@@ -1,53 +1,163 @@
 <?php
 
 /* @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<!--banner-->
+<div class="banner">
+    <div class="col-sm-3 banner-mat">
+        <img class="img-responsive"	src="images/ba1.jpg" alt="">
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+    <div class="col-sm-6 matter-banner">
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <img src="images/1.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="images/2.jpg" alt="">
+                    </li>
+                    <li>
+                        <img src="images/1.jpg" alt="">
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+    <div class="col-sm-3 banner-mat">
+        <img class="img-responsive" src="images/ba.jpg" alt="">
+    </div>
+    <div class="clearfix"> </div>
+</div>
+<!--//banner-->
+<!--content-->
+<div class="content">
+    <div class="container">
+        <div class="content-top">
+            <h1>Recent Products</h1>
+            <div class="content-top1">
+                <?php foreach ($products as $product):?>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="<?= Url::to(['/site/product', 'id'=>$product->id])?>">
+                            <img class="img-responsive" src="images/pi.png" alt="" />
+                        </a>
+                        <h3><a href="<?= Url::to(['/site/product', 'id'=>$product->id])?>"><?=$product->name?></a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$<?=$product->price?></h5>
+                            <a href="#" class="item_add">В корзину</a>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
 
+                </div>
+                <?php endforeach;?>
+               <!-- <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi2.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">T-Shirt</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi4.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">Shirt</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi1.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">Tops</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="content-top1">
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi3.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">Shirt</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi5.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">T-Shirt</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi6.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">Jeans</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-md2">
+                    <div class="col-md1 simpleCart_shelfItem">
+                        <a href="single.html">
+                            <img class="img-responsive" src="images/pi7.png" alt="" />
+                        </a>
+                        <h3><a href="single.html">Tops</a></h3>
+                        <div class="price">
+                            <h5 class="item_price">$300</h5>
+                            <a href="#" class="item_add">Add To Cart</a>
+                            <div class="clearfix"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>-->
+        </div>
     </div>
 </div>
+<!--//content-->

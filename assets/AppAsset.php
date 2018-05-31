@@ -20,9 +20,18 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/flexslider.css',
+        'css/style.css',
+        'css/memenu.css',
+        'css/popuo-box.css',
     ];
     public $js = [
+        'js/imagezoom.js',
+        'js/jquery.flexslider.js',
+        'js/jquery.magnific-popup.js',
+        'js/memenu.js',
+        'js/simpleCart.min.js',
+        'js/responsiveslides.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
