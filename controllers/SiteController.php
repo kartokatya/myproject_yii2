@@ -65,7 +65,9 @@ class SiteController extends Controller
     {
         //return $this->render('index');
         $category = Category::find()->all();
-        $product = Product::find()->all();
+        $product = Product::find()->where([
+            'main_page'=>1
+        ])->all();
         return $this->render('index', [
             'category'=>$category,
             'products'=>$product

@@ -34,7 +34,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'active', 'price', 'old_price'], 'integer'],
+            [['category_id', 'active','main_page', 'price', 'old_price'], 'integer'],
             [['name'], 'required'],
             [['description', 'content'], 'string'],
             [['name'], 'string', 'max' => 255],
@@ -56,6 +56,7 @@ class Product extends \yii\db\ActiveRecord
             'active' => 'Active',
             'price' => 'Price',
             'old_price' => 'Old Price',
+            'main_page'=>'Показывать на главной',
         ];
     }
 

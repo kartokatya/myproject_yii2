@@ -20,7 +20,8 @@ class m180529_141019_create_product_table extends Migration
             'content'=>$this->text(),
             'active'=>$this->boolean(),
             'price'=>$this->integer(),
-            'old_price'=>$this->integer()->unsigned()
+            'old_price'=>$this->integer()->unsigned(),
+            'main_page'=>$this->boolean(),
         ]);
         $this->addForeignKey('product_to_cat','product','category_id','category','id');
     }

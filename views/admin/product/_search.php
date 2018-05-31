@@ -28,6 +28,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content') ?>
 
+    <?= //echo $form->field($model, 'main_page') ?>
+
     <?php // echo $form->field($model, 'active') ?>
 
     <?php // echo $form->field($model, 'price') ?>

@@ -29,6 +29,8 @@ $categories=\yii\helpers\ArrayHelper::map($categories,'id','name');
 
     <?= $form->field($model, 'active')->textInput() ?>
 
+    <?= $form->field($model, 'main_page')->textInput() ?>
+
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'old_price')->textInput(['maxlength' => true]) ?>
