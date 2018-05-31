@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Category;
+use dosamigos\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -21,7 +22,10 @@ $categories=\yii\helpers\ArrayHelper::map($categories,'id','name');
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
+            'options'=>['rows'=>6],
+        'preset'=>'standart'
+    ])->label(false)?>
 
     <?= $form->field($model, 'active')->textInput() ?>
 

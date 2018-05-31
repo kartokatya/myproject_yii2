@@ -145,6 +145,6 @@ class SiteController extends Controller
             'category'=>$category,
             'products'=>$product
         ]);
-        //print_r($category);
+        print_r($category);
     }
 }
