@@ -22,7 +22,7 @@ use yii\helpers\Url;
                     <div class="col-md-4 col-md3">
                         <div class="col-md1 simpleCart_shelfItem">
                             <a href="<?= Url::to(['/site/product', 'id'=>$product->id])?>">
-                                <img class="img-responsive" src="images/pi1.png" alt="" />
+                                <img class="img-responsive" src="/images/pi1.png" alt="" />
                             </a>
                             <h3><a href="<?= Url::to(['/site/product', 'id'=>$product->id])?>"><?=$product->name?></a></h3>
                             <div class="price">
@@ -44,9 +44,9 @@ use yii\helpers\Url;
                 <h3 class="cate">Categories</h3>
                 <ul class="menu-drop">
                     <?php foreach ($categories as $category) { ?>
-                    <li class="item<?= $category->id ?>"><a href="<?= Url::to(['/site/product-list', 'id' => $category->id]) ?>"><?= $category->name ?></a>
+                        <li class="item<?= $category->id ?>"><a href="<?= Url::to(['/site/product-list', 'id' => $category->id]) ?>"><?= $category->name ?></a>
 
-                    </li>
+                        </li>
                     <?php } ?>
                 </ul>
             </div>

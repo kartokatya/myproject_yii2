@@ -15,14 +15,14 @@
             <div class="col-md-5 grid">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="images/si.jpg">
-                            <div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="/images/si.jpg">
+                            <div class="thumb-image"> <img src="/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="images/si1.jpg">
-                            <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="/images/si1.jpg">
+                            <div class="thumb-image"> <img src="/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
-                        <li data-thumb="images/si2.jpg">
-                            <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+                        <li data-thumb="/images/si2.jpg">
+                            <div class="thumb-image"> <img src="/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="images/pi6.png" alt="" />
+                            <img class="img-responsive" src="/images/pi6.png" alt="" />
                         </a>
                         <h3><a href="single.html">Jeans</a></h3>
                         <div class="price">
@@ -87,7 +87,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="images/pi7.png" alt="" />
+                            <img class="img-responsive" src="/images/pi7.png" alt="" />
                         </a>
                         <h3><a href="single.html">Tops</a></h3>
                         <div class="price">
@@ -101,7 +101,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="images/pi.png" alt="" />
+                            <img class="img-responsive" src="/images/pi.png" alt="" />
                         </a>
                         <h3><a href="single.html">Tops</a></h3>
                         <div class="price">

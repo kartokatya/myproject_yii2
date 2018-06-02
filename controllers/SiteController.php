@@ -7,6 +7,7 @@ use app\models\Product;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
@@ -73,21 +74,6 @@ class SiteController extends Controller
             'products'=>$product
         ]);
     }
-
-
-   /* public function actionCategory($category){
-        $category = Category::find()->where([
-            'active'=>1,
-            'name'=>$category
-        ])->one();
-        $product = Product::find()->where(['category_id'=>$category->id])->all();
-        return $this->render('category', [
-            'category'=>$category,
-            'products'=>$product
-        ]);
-        print_r($category);
-    }*/
-
 
 
 
@@ -157,12 +143,17 @@ class SiteController extends Controller
 
     public function actionProduct($id){
         $product = Product::findOne(['id'=>$id]);
+
+        if(!$product){
+            throw new NotFoundHttpException('404');
+        }
+
         return $this->render('product', [
             'product'=>$product
         ]);
     }
 
-    public function actionCategory($category){
+   /* public function actionCategory($category){
         $category = Category::find()->where([
             'active'=>1,
             'name'=>$category
@@ -173,5 +164,18 @@ class SiteController extends Controller
             'products'=>$product
         ]);
         //print_r($category);
+    }*/
+
+    public function actionProductList($id=NULL){
+        $products = $id ? Category::findOne($id)->products : Product::find()->all();
+        $categories = Category::find()->all();
+
+        return $this->render('product-list.php',[
+            'products'=>$products,
+            'categories'=>$categories
+        ]);
     }
+
 }
+
+
