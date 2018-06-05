@@ -20,16 +20,18 @@ $categories=\yii\helpers\ArrayHelper::map($categories,'id','name');
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model,'image')->fileInput()?>
+
+
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(),[
             'options'=>['rows'=>6],
         'preset'=>'standart'
     ])->label(false)?>
+    <?= $form->field($model, 'active')->checkbox() ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
-
-    <?= $form->field($model, 'main_page')->textInput() ?>
+    <?= $form->field($model, 'main_page')->checkbox() ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 

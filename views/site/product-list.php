@@ -27,7 +27,10 @@ use yii\helpers\Url;
                             <h3><a href="<?= Url::to(['/site/product', 'id'=>$product->id])?>"><?=$product->name?></a></h3>
                             <div class="price">
                                 <h5 class="item_price">$<?=$product->price?></h5>
-                                <a href="#" class="item_add">Add To Cart</a>
+                                <input type="" class="item_quantity" value="1" />
+                                <button class="btn  btn-sm btn-info btn-ord" data-id="<?=$product->id?>" >В корзину</button>
+
+                                <?=$product->id?>
                                 <div class="clearfix"> </div>
                             </div>
                         </div>

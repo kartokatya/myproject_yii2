@@ -3,11 +3,11 @@
 namespace app\controllers\admin;
 
 
-use app\controllers\admin\IndexController;
+
+use app\models\Category;
 use Yii;
 use app\models\Product;
 use app\models\ProductSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -67,6 +67,7 @@ class ProductController extends IndexController
     public function actionCreate()
     {
         $model = new Product();
+        $categories = Category::find()->select(['id','name'])->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -74,6 +75,7 @@ class ProductController extends IndexController
 
         return $this->render('create', [
             'model' => $model,
+            'categories'=>$categories,
         ]);
     }
 
@@ -87,6 +89,7 @@ class ProductController extends IndexController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $categories = Category::find()->select(['id','name'])->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -94,6 +97,7 @@ class ProductController extends IndexController
 
         return $this->render('update', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 

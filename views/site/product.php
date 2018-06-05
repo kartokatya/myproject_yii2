@@ -6,6 +6,7 @@
  * Time: 14:18
  * @var $product app\models\Product
  */
+use yii\helpers\Url;
 ?>
 
 <div class="single">
@@ -13,19 +14,18 @@
     <div class="container">
         <div class="col-md-9">
             <div class="col-md-5 grid">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li data-thumb="/images/si.jpg">
-                            <div class="thumb-image"> <img src="/images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                        <li data-thumb="/images/si1.jpg">
-                            <div class="thumb-image"> <img src="/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                        <li data-thumb="/images/si2.jpg">
-                            <div class="thumb-image"> <img src="/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                        </li>
-                    </ul>
+
+
+
+                <div class="slider single-item">
+                    <div><img src="<?=$product->image?>" /></div>
+                    <div><img src="<?=$product->image?>" /></div>
+                    <div><img src="<?=$product->image?>" /></div>
+                    <div><img src="<?=$product->image?>" /></div>
                 </div>
+
+
+
             </div>
             <div class="col-md-7 single-top-in">
                 <div class="single-para simpleCart_shelfItem">
@@ -74,7 +74,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="/images/pi6.png" alt="" />
+                            <img class="img-responsive" src="<?=$product->image?>" alt="" />
                         </a>
                         <h3><a href="single.html">Jeans</a></h3>
                         <div class="price">
@@ -87,7 +87,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="/images/pi7.png" alt="" />
+                            <img class="img-responsive" src="<?=$product->image?>" alt="" />
                         </a>
                         <h3><a href="single.html">Tops</a></h3>
                         <div class="price">
@@ -101,7 +101,7 @@
                 <div class="col-md-4 col-md3">
                     <div class="col-md1 simpleCart_shelfItem">
                         <a href="single.html">
-                            <img class="img-responsive" src="/images/pi.png" alt="" />
+                            <img class="img-responsive" src="<?=$product->image?>" alt="" />
                         </a>
                         <h3><a href="single.html">Tops</a></h3>
                         <div class="price">
@@ -122,64 +122,15 @@
             <div class=" rsidebar span_1_of_left">
                 <h3 class="cate">Categories</h3>
                 <ul class="menu-drop">
-                    <li class="item1"><a href="#">Men </a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
-                    <li class="item2"><a href="#">Women </a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
-                    <li class="item3"><a href="#">Kids</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails</a></li>
-                        </ul>
-                    </li>
-                    <li class="item4"><a href="#">Accesories</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails</a></li>
-                        </ul>
-                    </li>
+                    <?php foreach ($categories as $category) { ?>
+                        <li class="item<?= $category->id ?>"><a href="<?= Url::to(['/site/product-list', 'id' => $category->id]) ?>"><?= $category->name ?></a>
 
-                    <li class="item4"><a href="#">Shoes</a>
-                        <ul class="cute">
-                            <li class="subitem1"><a href="single.html">Cute Kittens </a></li>
-                            <li class="subitem2"><a href="single.html">Strange Stuff </a></li>
-                            <li class="subitem3"><a href="single.html">Automatic Fails </a></li>
-                        </ul>
-                    </li>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
             <!--initiate accordion-->
-            <script type="text/javascript">
-                $(function() {
-                    var menu_ul = $('.menu-drop > li > ul'),
-                        menu_a  = $('.menu-drop > li > a');
-                    menu_ul.hide();
-                    menu_a.click(function(e) {
-                        e.preventDefault();
-                        if(!$(this).hasClass('active')) {
-                            menu_a.removeClass('active');
-                            menu_ul.filter(':visible').slideUp('normal');
-                            $(this).addClass('active').next().stop(true,true).slideDown('normal');
-                        } else {
-                            $(this).removeClass('active');
-                            $(this).next().stop(true,true).slideUp('normal');
-                        }
-                    });
 
-                });
-            </script>
             <!--//menu-->
             <!--seller-->
             <div class="product-bottom">

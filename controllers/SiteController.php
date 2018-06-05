@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\Product;
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -143,13 +144,14 @@ class SiteController extends Controller
 
     public function actionProduct($id){
         $product = Product::findOne(['id'=>$id]);
-
+        $categories = Category::find()->all();
         if(!$product){
             throw new NotFoundHttpException('404');
         }
 
         return $this->render('product', [
-            'product'=>$product
+            'product'=>$product,
+            'categories'=>$categories,
         ]);
     }
 
@@ -173,6 +175,21 @@ class SiteController extends Controller
         return $this->render('product-list.php',[
             'products'=>$products,
             'categories'=>$categories
+        ]);
+    }
+
+    public function actionSignUp(){
+        $user = new User();
+
+        if($user->load(Yii::$app->request->post())){
+            $user->setPassword($user->password);
+            $user->save();
+
+            return $this->redirect(['site/login']);
+        }
+
+        return $this->render('sign-up',[
+            'user'=>$user,
         ]);
     }
 
