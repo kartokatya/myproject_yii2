@@ -10,6 +10,7 @@ use app\models\Product;
 use app\models\ProductSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -93,7 +94,7 @@ class ProductController extends IndexController
                     // You can customize response by this function, e.g. change response:
                     if (Yii::$app->request->isAjax) {
                         Yii::$app->response->getHeaders()->set('Vary', 'Accept');
-                        Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+                        Yii::$app->response->format = Response::FORMAT_JSON;
 
                         return ['status' => 'success', 'message' => 'Image deleted'];
                     } else {

@@ -35,7 +35,7 @@ class Product extends \yii\db\ActiveRecord
                     // Name of image attribute where the image will be stored
                     'imageAttribute' => 'image',
                     // Yii-alias to dir where will be stored subdirectories with images
-                    'savePathAlias' => '/images/products',
+                    'savePathAlias' => 'images/products',
                     // Yii-alias to root project dir, relative path to the image will exclude this part of the full path
                     'rootPathAlias' => '/',
                     // Name of default image. Image placed to: webrooot/images/{noImageBaseName}
