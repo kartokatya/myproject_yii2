@@ -76,6 +76,40 @@ class ProductController extends IndexController
         return $this->render('create', [
             'model' => $model,
             'categories'=>$categories,
+            'deleteImage' => [
+                'class' => 'demi\image\DeleteImageAction',
+                'modelClass' => Product::className(),
+                'canDelete' => function ($model) {
+                    /* @var $model \yii\db\ActiveRecord */
+                    return $model->user_id == Yii::$app->user->id;
+                },
+                'redirectUrl' => function ($model) {
+                    /* @var $model \yii\db\ActiveRecord */
+                    // triggered on !Yii::$app->request->isAjax, else will be returned JSON: {status: "success"}
+                    return ['post/view', 'id' => $model->primaryKey];
+                },
+                'afterDelete' => function ($model) {
+                    /* @var $model \yii\db\ActiveRecord */
+                    // You can customize response by this function, e.g. change response:
+                    if (Yii::$app->request->isAjax) {
+                        Yii::$app->response->getHeaders()->set('Vary', 'Accept');
+                        Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+
+                        return ['status' => 'success', 'message' => 'Image deleted'];
+                    } else {
+                        return Yii::$app->response->redirect(['post/view', 'id' => $model->primaryKey]);
+                    }
+                },
+            ],
+            'cropImage' => [
+                'class' => 'demi\image\CropImageAction',
+                'modelClass' => Product::className(),
+                'redirectUrl' => function ($model) {
+                    /* @var $model Product */
+                    // triggered on !Yii::$app->request->isAjax, else will be returned JSON: {status: "success"}
+                    return ['update', 'id' => $model->id];
+                },
+            ],
         ]);
     }
 
